@@ -1,10 +1,11 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS  # ✅ Import CORS
 from sklearn.preprocessing import LabelEncoder, StandardScaler
 from tensorflow.keras.models import load_model
 import pandas as pd
 
-# Initialize the Flask app
 app = Flask(__name__)
+CORS(app)  # ✅ Enable CORS for all routes
 
 # Load the saved model
 loaded_model = load_model("my_model.h5")
